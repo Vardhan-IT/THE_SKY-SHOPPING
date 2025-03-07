@@ -2,102 +2,99 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazing Products Store</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+  <meta charset="UTF-8">
+  <title>Amazing Products Store</title>
+  <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- Sidebar Menu -->
-        <div id="side-menu" class="side-menu">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
-            <a href="#" onclick="showProducts('electronics')">Electronics Products</a>
-            <a href="#" onclick="showProducts('clothes')">Clothes</a>
-            <a href="#" onclick="showProducts('shoes')">Shoes</a>
-            <a href="#" onclick="showProducts('smartphones')">Smartphones</a>
-        </div>
+  <!-- Sidebar Menu -->
+  <div id="side-menu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+    <a href="#" onclick="showProducts('electronics')">Electronics Products</a>
+    <a href="#" onclick="showProducts('clothes')">Clothes</a>
+    <a href="#" onclick="showProducts('shoes')">Shoes</a>
+    <a href="#" onclick="showProducts('smartphones')">Smartphones</a>
+  </div>
 
-        <!-- Header -->
-        <header>
-            <span class="menu-btn" onclick="openMenu()">&#9776; Menu</span>
-            <h1>Amazing Products</h1>
-            <div class="account">
-                <span class="account-info" id="account-info">Hello, Guest</span>
-                <button onclick="toggleLoginPopup()">Sign In</button>
-                <button onclick="logOut()" id="logout-button" style="display: none;">Log Out</button>
-            </div>
-            <div class="cart-section">
-                <span class="cart-info" id="cart-info">Cart: 0 item(s)</span>
-                <button onclick="showCart()">View Cart</button>
-            </div>
-        </header>
-
-        <!-- Toolbar -->
-        <div class="toolbar">
-            <a href="#" onclick="showHome()">Home</a>
-            <a href="#" onclick="showProducts()">Products</a>
-            <a href="#" onclick="showAboutUs()">About Us</a>
-            <a href="#" onclick="showContactUs()">Contact Us</a>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" id="search" placeholder="Search for products..." onkeyup="searchProducts()">
-            <button onclick="searchProducts()">Search</button>
-        </div>
-
-        <!-- Main content -->
-        <div class="ad-container" id="ad-container">
-            <h2>Featured Ads</h2>
-            <div class="ad" id="ad1">Ad 1: 50% Off on All Items!</div>
-            <div class="ad" id="ad2">Ad 2: Buy One Get One Free!</div>
-            <div class="ad" id="ad3">Free Shipping on Orders Over $50!</div>
-        </div>
-
-        <div class="product-container" id="product-container">
-            <h2>Our Products</h2>
-            <!-- Products will be dynamically added here -->
-        </div>
-
-        <div class="cart-container" id="cart-container" style="display: none;">
-            <h2>Your Cart</h2>
-            <div id="cart-items"></div>
-            <div id="total-price">Total: $0.00</div>
-            <button onclick="hideCart()">Close Cart</button>
-            <button onclick="showPaymentMethods()">Buy Now</button>
-            <div id="payment-methods" style="display: none;">
-                <h3>Payment Methods</h3>
-                <p>We accept:</p>
-                <ul>
-                    <li>Credit/Debit Cards</li>
-                    <li>PayPal</li>
-                    <li>Cash on Delivery</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- About Us Section -->
-        <div class="about-us" id="about-us" style="display: none;">
-            <h2>About Us</h2>
-            <p>We are dedicated to providing you with the best products at the best prices. Our mission is to make online shopping enjoyable and accessible for everyone.</p>
-        </div>
-
-        <!-- Contact Us Section -->
-        <div class="contact-us" id="contact-us" style="display: none;">
-            <h2>Contact Us</h2>
-            <p>If you have any questions, feel free to reach out to us at:</p>
-            <p>Email: <a href="mailto:support@amazingproducts.com">support@amazingproducts.com</a></p>
-            <p>Phone: +1 (555) 123-4567</p>
-        </div>
+  <!-- Header -->
+  <header>
+    <span class="menu-btn" onclick="openMenu()">&#9776; Menu</span>
+    <h1>Amazing Products</h1>
+    <div class="account">
+      <span class="account-info" id="account-info">Hello, Guest</span>
+      <button onclick="toggleLoginPopup()">Sign In</button>
+      <button onclick="logOut()" id="logout-button" style="display: none;">Log Out</button>
     </div>
+    <div class="cart-section">
+      <span class="cart-info" id="cart-info">Cart: 0 item(s)</span>
+      <button onclick="showCart()">View Cart</button>
+    </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2024 Amazing Products. All rights reserved.</p>
-    </footer>
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#" onclick="showProducts()">Products</a>
+    <a href="#" onclick="showAboutUs()">About Us</a>
+    <a href="#" onclick="showContactUs()">Contact Us</a>
+  </div>
 
-    <script src="script.js"></script> <!-- External JS -->
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search for products..." onkeyup="searchProducts()">
+    <button onclick="searchProducts()">Search</button>
+  </div>
+
+  <!-- Main content -->
+  <div class="ad-container" id="ad-container">
+    <h2>Featured Ads</h2>
+    <div class="ad" id="ad1">Ad 1: 50% Off on All Items!</div>
+    <div class="ad" id="ad2">Ad 2: Buy One Get One Free!</div>
+    <div class="ad" id="ad3">Free Shipping on Orders Over $50!</div>
+  </div>
+
+  <div class="product-container" id="product-container" style="display: none;">
+    <h2>Our Products</h2>
+    <!-- Products will be dynamically added here -->
+  </div>
+
+  <div class="cart-container" id="cart-container" style="display: none;">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div id="total-price">Total: $0.00</div>
+    <button onclick="hideCart()">Close Cart</button>
+    <button onclick="showPaymentMethods()">Buy Now</button>
+    <div id="payment-methods" style="display: none;">
+      <h3>Payment Methods</h3>
+      <p>We accept:</p>
+      <ul>
+        <li>Credit/Debit Cards</li>
+        <li>PayPal</li>
+        <li>Cash on Delivery</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- About Us Section -->
+  <div class="about-us" id="about-us" style="display: none;">
+    <h2>About Us</h2>
+    <p>We are dedicated to providing you with the best products at the best prices. Our mission is to make online shopping enjoyable and accessible for everyone.</p>
+  </div>
+
+  <!-- Contact Us Section -->
+  <div class="contact-us" id="contact-us" style="display: none;">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out to us at:</p>
+    <p>Email: <a href="mailto:support@amazingproducts.com">support@amazingproducts.com</a></p>
+    <p>Phone: +1 (555) 123-4567</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Amazing Products. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script> <!-- External JS -->
 </body>
 
 </html>
