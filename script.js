@@ -258,3 +258,67 @@ function showContactUs() {
 document.addEventListener("DOMContentLoaded", () => {
   showHome();
 });
+
+// Function to add product to cart
+function addToCart(productName, price, quantity) {
+    if (!currentUser) {
+        alert("Please sign in to add items to the cart.");
+        return;
+    }
+
+    quantity = parseInt(quantity);
+    if (quantity <= 0 || isNaN(quantity)) {
+        alert("Please enter a valid quantity.");
+        return;
+    }
+
+    const existingProductIndex = cart.findIndex((item) => item.name === productName);
+
+    if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += quantity; // Increase quantity if item exists
+    } else {
+        cart.push({ name: productName, price: price, quantity: quantity }); // Add new item
+    }
+
+    updateCartInfo(); // Update UI
+    saveCart(); // Save to localStorage
+    alert(`${productName} (${quantity}) added to cart.`);
+}
+
+// Function to update cart details
+function updateCartInfo() {
+    const cartInfo = document.getElementById("cart-info");
+    const cartItems = document.getElementById("cart-items");
+    const totalPriceElement = document.getElementById("total-price");
+
+    let totalQuantity = 0;
+    let totalPrice = 0;
+    cartItems.innerHTML = ""; // Clear previous cart items
+
+    cart.forEach((item, index) => {
+        totalQuantity += item.quantity;
+        totalPrice += item.price * item.quantity;
+
+        const cartItemDiv = document.createElement("div");
+        cartItemDiv.className = "cart-item";
+        cartItemDiv.innerHTML = `
+            <span>${item.name} (x${item.quantity})</span>
+            <span class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+            <button onclick="increaseQuantity(${index})">+</button>
+            <button onclick="decreaseQuantity(${index})">-</button>
+            <button onclick="removeItem(${index})">Remove</button>
+        `;
+        cartItems.appendChild(cartItemDiv);
+    });
+
+    cartInfo.innerText = `Cart: ${totalQuantity} item(s)`;
+    totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
+}
+
+// Function to show the cart when "View Cart" is clicked
+function showCart() {
+    document.getElementById("cart-container").style.display = "block";
+    document.getElementById("product-container").style.display = "none";
+    document.getElementById("ad-container").style.display = "none";
+    updateCartInfo(); // Ensure the cart is updated before displaying
+}
