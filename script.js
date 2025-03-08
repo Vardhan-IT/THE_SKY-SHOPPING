@@ -2,25 +2,26 @@ var cart = [];
 var currentUser = null;
 
 const products = {
-  christmas_items: [
-    { name: "christmas cap", price: 800 },
-    { name: "bells", price: 600 },
-    { name: " snow gloves", price: 150 }
+  electronics: [
+    { name: "Laptop", price: 800 },
+    { name: "Smart TV", price: 600 },
+    { name: "Headphones", price: 150 }
   ],
-  western_wear_clothes: [
+  clothes: [
     { name: "T-Shirt", price: 20 },
     { name: "Jeans", price: 40 }
   ],
-  traditional_clothes: [
-    { name: "kurta pajama", price: 60 },
-    { name: "chudidar", price: 30 }
+  shoes: [
+    { name: "Sneakers", price: 60 },
+    { name: "Sandals", price: 30 }
   ],
-  diwali_items: [
-    { name: "crackers-rockets", price: 500 },
-    { name: "depalu", price: 650 },
-    { name: "crackers-matches", price: 700 }
+  smartphones: [
+    { name: "Smartphone A", price: 500 },
+    { name: "Smartphone B", price: 650 },
+    { name: "Smartphone C", price: 700 }
   ]
 };
+
 function addToCart(productName, price, quantity) {
   if (!currentUser) {
     alert("Please sign in to add items to the cart.");
@@ -92,7 +93,7 @@ function openMenu() {
 function closeMenu() {
   document.getElementById("side-menu").style.width = "0";
 }
-
+document.addEventListener("touchstart", function() {}, true);
 // Account Operations
 function signUp(username, password) {
   if (localStorage.getItem(username)) {
@@ -267,3 +268,24 @@ function searchProducts() {
     }
   });
 }
+// Detect screen orientation changes
+window.addEventListener("orientationchange", function() {
+    console.log("Screen rotated to " + screen.orientation.angle);
+    adjustLayout();
+});
+
+// Adjust layout when switching between portrait & landscape
+function adjustLayout() {
+    if (window.innerHeight < window.innerWidth) {
+        console.log("Landscape mode detected.");
+        document.body.classList.add("landscape-mode");
+        document.body.classList.remove("portrait-mode");
+    } else {
+        console.log("Portrait mode detected.");
+        document.body.classList.add("portrait-mode");
+        document.body.classList.remove("landscape-mode");
+    }
+}
+
+// Ensure layout is adjusted when page loads
+document.addEventListener("DOMContentLoaded", adjustLayout);
