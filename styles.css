@@ -236,3 +236,119 @@ cart-section {
         max-width: 300px;
     }
 }
+/* Ensure the viewport does not zoom or shift layout on rotation */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Make sure the page scales correctly when rotating */
+@media screen and (orientation: landscape) {
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+/* Header */
+header {
+    background-color: #444;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ensure buttons resize properly in any orientation */
+button {
+    margin-left: 10px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #ff5722;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e64a19;
+}
+
+/* Responsive Product Grid */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    gap: 15px;
+}
+
+/* Ensure products resize correctly */
+.product {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+/* Adjust styles for landscape mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .product {
+        max-width: 180px; /* Make products smaller for landscape mode */
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px; /* Make buttons slightly smaller */
+    }
+
+    .cart-container, .about-us, .contact-us {
+        padding: 10px;
+    }
+}
+
+/* Adjust styles for small mobile screens */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product {
+        max-width: 320px; /* Ensure product cards are larger on portrait mode */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .side-menu {
+        width: 70%;
+    }
+
+    .product {
+        max-width: 90%;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
