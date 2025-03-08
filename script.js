@@ -2,24 +2,25 @@ var cart = [];
 var currentUser = null;
 
 const products = {
-  electronics: [
-    { name: "Laptop", price: 800 },
-    { name: "Smart TV", price: 600 },
-    { name: "Headphones", price: 150 }
+  christmas_itmes: [
+    { name: "christmas cap", price: 999.99 },
+    { name: "bells", price: 599.99 },
+    { name: "christmas tree", price: 199.99 },
   ],
   clothes: [
     { name: "T-Shirt", price: 20 },
     { name: "Jeans", price: 40 }
   ],
-  shoes: [
-    { name: "Sneakers", price: 60 },
-    { name: "Sandals", price: 30 }
+  traditional_wear: [
+    { name: "kurtha pijama", price: 49.99 },
+    { name: "chudhidar", price: 89.99 },
+    { name: "saree", price: 29.99 },
   ],
-  smartphones: [
-    { name: "Smartphone A", price: 500 },
-    { name: "Smartphone B", price: 650 },
-    { name: "Smartphone C", price: 700 }
-  ]
+  diwali_items: [
+    { name: "depalu", price: 799.99 },
+    { name: "depam oil", price: 799.99 },
+    { name: "crackers", price: 699.99 },
+  ],
 };
 
 function addToCart(productName, price, quantity) {
